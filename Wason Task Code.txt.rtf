@@ -1,0 +1,1338 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 options\
+  mouse on #want mouse cursor present\
+\
+fonts #define font and sizes\
+  Small arial 18\
+  Medium arial 25\
+  Large arial 40\
+  Huge arial 70\
+\
+bitmaps #define all bitmaps used\
+  card3\
+  cardB\
+  cardZ\
+  card7\
+  card5\
+  card9\
+  cardT\
+  cardV\
+  cardA\
+  card8\
+  cardX\
+  cardTAM\
+  cardTWM\
+  cardWSW\
+  cardWSB\
+  cardPB\
+  cardPNB\
+  cardEM\
+  cardNEM\
+  cardNSW\
+  cardNSB\
+  cardBSW\
+  cardBSB\
+  cardAC\
+  cardJC\
+  basicinstruct\
+  q2instruct\
+  q3instruct\
+  qTBSinstruct\
+  q1instruct\
+  qBSBinstruct\
+  qBSWinstruct\
+  qWSBinstruct\
+  qWSWinstruct\
+  qNSBinstruct \
+  qNSWinstruct\
+  markingsymbol\
+  markingsymbol2\
+  exitbitmap1\
+  exitbitmap2\
+  ticked\
+  note\
+\
+#note that there are many block orders, this randomizes block orders. The program will randomly pick 1 of these block orders to run\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardBSWblock\
+  cardWSWblock\
+  cardNSWblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardBSWblock\
+  cardNSWblock\
+  cardWSWblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardNSWblock\
+  cardWSWblock\
+  cardBSWblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardNSWblock\
+  cardBSWblock\
+  cardWSWblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardWSWblock\
+  cardNSWblock\
+  cardBSWblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardWSWblock\
+  cardBSWblock\
+  cardNSWblock\
+\
+\
+#Black conditions start here (the rules have a Black target - e.g. Black child sentenced in adult court)\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardBSBblock\
+  cardWSBblock\
+  cardNSBblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardBSBblock\
+  cardNSBblock\
+  cardWSBblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardNSBblock\
+  cardWSBblock\
+  cardBSBblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardNSBblock\
+  cardBSBblock\
+  cardWSBblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardWSBblock\
+  cardNSBblock\
+  cardBSBblock\
+\
+blockorder\
+  instruct\
+  cardq1block\
+  cardq2block\
+  cardq3block\
+  cardTBSblock\
+  cardWSBblock\
+  cardBSBblock\
+  cardNSBblock\
+\
+\
+#define a task \
+\
+task basicinstruct\
+  show bitmap basicinstruct   0 0 # shows basic instructions for the tax\
+  choose option exit exitbitmap1 exitbitmap2 330 220 #participants can click "next" when they've read the instructions and understand\
+  choose 99999 3 7 \
+  clear 1\
+  show text "***IMPORTANT NOTE***"  0 -20 \
+  show text " ONCE YOU SELECT A CARD, YOU CANNOT UNSELECT THE CARD" 0 15\
+  choose option exit exitbitmap1 exitbitmap2 330 220\
+  choose 99999 3 7\
+ \
+\
+#instructions for block "instruct"\
+\
+block instruct\
+  tasklist\
+    basicinstruct 1  #define the tasks you want to run (above) here -- 1 means it will run the task once \
+  end\
+\
+\
+task cardq1\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 #set all variables to 0 to begin with \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Please select the cards that rhyme with 'knee'."  0 210 \
+    show text "Click 'next' when your selection is finished."  0 250 \
+    show bitmap card3    -300 20  # bitmap number 3\
+    show bitmap cardB    -100 20  # bitmap number 4\
+    show bitmap cardZ    100 20  # bitmap number 5\
+    show bitmap card7    300 20  # bitmap number 6\
+    show bitmap q1instruct  -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 2000 #this delay will not allow participants to click the cards for 2 seconds, included to insure people read the instructios before choosing \
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6 #this readmouse function is very important. It will track which bitmaps are chosen the "l" denotes that it will read when the left mouse will be clicked\
+#the long number denotes the amount of time the read mouse will "read" for. I've set this to very large to ensure that it will not end before the participant has clicked\
+#the 3 6 denotes the range of bitmaps that the readmouse funtion will use to determine whether a bitmap has been chosen. Note that in the later iterations, the range will be 3 8, bitmap 8 is the "next" button. Because I want to make sure participants have clicked at least one card, I do not include that bitmap here \
+    set $myMouseX MOUSE_X \
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3 #records which bitmap is recorded, note that I have 4 variables, one for each of my cards, the numbers 3-6 correspond to the bitmap number)\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 #saves info\
+   set $x2 0 #now, because the readmouse function only works for one click, we must do this process again, with a new variable\
+    set $myMouseX2 MOUSE_X #make sure that these are different than your mouse functions above\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8 #note this has changed to 8. Now that participants have clicked a card, this will allow people to click the "next" bitmap if they only want to choose one card\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist #if they choose bitmap number 8, which corresponds to the next button, the task will end, and they will be send to the next question\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 #make sure you are saving all variables after each -- I recommend using the save function from your LAST save, this will make the number of columns equal when you look at your data, which to me is easier to interpret \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi \
+   if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4      \
+  while-end\
+\
+\
+block cardq1block\
+  tasklist\
+    cardq1 1 \
+  end\
+\
+task cardq2\
+  text medium\
+  text color white\
+  text align center\
+  set $x5 0 \
+  set $b10 0\
+  set $b20 0\
+  set $b30 0\
+  set $b40 0\
+  draw off\
+    show text "Please select the cards that have a letter on the back."  0 210 \
+    show text "Click 'next' when your selection is finished."  0 250 \
+    show bitmap card5    -300 20  # bitmap number 1\
+    show bitmap card9    -100 20  # bitmap number 2\
+    show bitmap cardT    100 20  # bitmap number 3\
+    show bitmap cardV    300 20  # bitmap number 4\
+    show bitmap q2instruct  -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 4000\
+ while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4      \
+  while-end\
+\
+\
+block cardq2block\
+  tasklist\
+    cardq2 1\
+  end\
+\
+task cardq3\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Please select the cards needed to falsify the rule."  0 210 \
+    show text "Click 'next' when your selection is finished."  0 250 \
+    show bitmap card5    -300 20  # bitmap number 1\
+    show bitmap cardA    -100 20  # bitmap number 2\
+    show bitmap card8    100 20  # bitmap number 3\
+    show bitmap cardX    300 20  # bitmap number 4\
+    show bitmap q3instruct  -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 4000\
+  while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+\
+block cardq3block\
+  tasklist\
+    cardq3 1\
+  end\
+\
+task cardTBS\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Please select the cards that have an outcome on the back."  0 210 \
+    show text "Click 'next' when your selection is finished."  0 250 \
+    show bitmap cardTAM    -300 20  # bitmap number 1\
+    show bitmap cardJC    -100 20  # bitmap number 2\
+    show bitmap cardAC    100 20  # bitmap number 3\
+    show bitmap cardTWM    300 20  # bitmap number 4\
+    show bitmap qTBSinstruct  -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 4000\
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+ \
+\
+block cardTBSblock\
+  tasklist\
+    cardTBS 1\
+  end\
+\
+task cardBSW\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Please select the cards needed to test the pundit's claim."  0 210 #change this and delete\
+    show text "Click 'next' when your selection is finished."  0 250 #change this and delete message below if works\
+    show bitmap cardJC    -300 20  # bitmap number 1\
+    show bitmap cardBSB    -100 20  # bitmap number 2\
+    show bitmap cardAC    100 20  # bitmap number 3\
+    show bitmap cardBSW    300 20  # bitmap number 4\
+    show bitmap qBSWinstruct -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 5000\
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+\
+block cardBSWblock\
+  tasklist\
+    cardBSW 1\
+  end\
+\
+task cardBSB\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Please select the cards needed to test the pundit's claim."  0 210 #change this and delete\
+    show text "Click 'next' when your selection is finished."  0 250 #change this and delete message below if works\
+    show bitmap cardJC    -300 20  # bitmap number 1\
+    show bitmap cardBSW    -100 20  # bitmap number 2\
+    show bitmap cardAC    100 20  # bitmap number 3\
+    show bitmap cardBSB    300 20  # bitmap number 4\
+    show bitmap qBSBinstruct -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 5000\
+ while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+\
+block cardBSBblock\
+  tasklist\
+    cardBSB 1\
+  end\
+\
+task cardWSB\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text  "Please select the cards needed to test the pundit's claim." 0 210 #change this and delete\
+    show text "Click 'next' when your selection is finished." 0 250 #change this and delete message below if works\
+    show bitmap cardPB    -300 20  # bitmap number 1\
+    show bitmap cardWSB    -100 20  # bitmap number 2\
+    show bitmap cardWSW    100 20  # bitmap number 3\
+    show bitmap cardPNB    300 20  # bitmap number 4\
+    show bitmap qWSBinstruct -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 5000\
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+\
+block cardWSBblock\
+  tasklist\
+    cardWSB 1\
+  end\
+\
+task cardWSW\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text  "Please select the cards needed to test the pundit's claim." 0 210 #change this and delete\
+    show text "Click 'next' when your selection is finished." 0 250 #change this and delete message below if works\
+    show bitmap cardPB    -300 20  # bitmap number 1\
+    show bitmap cardWSW    -100 20  # bitmap number 2\
+    show bitmap cardWSB    100 20  # bitmap number 3\
+    show bitmap cardPNB    300 20  # bitmap number 4\
+    show bitmap qWSWinstruct -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 5000\
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+\
+block cardWSWblock\
+  tasklist\
+    cardWSW 1\
+  end\
+\
+task cardNSW\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Click 'next' when your selection is finished." 0 250 #change this and delete\
+    show text "Please select the cards needed to test the pundit's claim."   0 210 #change this and delete message below if works\
+    show bitmap cardNSB    -300 20  # bitmap number 1\
+    show bitmap cardNEM    -100 20  # bitmap number 2\
+    show bitmap cardNSW    100 20  # bitmap number 3\
+    show bitmap cardEM    300 20  # bitmap number 4\
+    show bitmap qNSWinstruct -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 5000\
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+block cardNSWblock\
+  tasklist\
+    cardNSW 1\
+  end\
+\
+task cardNSB\
+  text medium\
+  text color white\
+  text align center\
+  set $x 0 \
+  set $b1 0\
+  set $b2 0\
+  set $b3 0\
+  set $b4 0\
+  draw off\
+    show text "Click 'next' when your selection is finished." 0 250 #change this and delete\
+    show text "Please select the cards needed to test the pundit's claim."   0 210 #change this and delete message below if works\
+    show bitmap cardNSW    -300 20  # bitmap number 1\
+    show bitmap cardNEM    -100 20  # bitmap number 2\
+    show bitmap cardNSB    100 20  # bitmap number 3\
+    show bitmap cardEM    300 20  # bitmap number 4\
+    show bitmap qNSBinstruct -10 -200\
+    show bitmap exitbitmap1 330 120\
+  draw on\
+   delay 5000\
+while $x == 0\
+    readmouse l 1 10000000000 range 3 6\
+    set $myMouseX MOUSE_X\
+    set $myMouseY MOUSE_Y\
+    set $x bitmap-under-mouse $myMouseX $myMouseY up range 3 6\
+    if $x  == 3\
+      set $b1 1\
+    fi\
+   if $x  == 4\
+      set $b2 1\
+    fi\
+   if $x  == 5\
+      set $b3 1\
+    fi\
+  if $x  == 6\
+      set $b4 1\
+    fi\
+    show bitmap ticked $myMouseX $myMouseY ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x2 0\
+    set $myMouseX2 MOUSE_X\
+    set $myMouseY2 MOUSE_Y\
+    set $x2 bitmap-under-mouse $myMouseX2 $myMouseY2 up range 3 8\
+    if $x2  == 3\
+      set $b1 1\
+    fi\
+   if $x2  == 4\
+      set $b2 1\
+    fi\
+   if $x2  == 5\
+      set $b3 1\
+    fi\
+  if $x2  == 6\
+      set $b4 1\
+    fi\
+    if $x2 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX2 $myMouseY2 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x3 0\
+    set $myMouseX3 MOUSE_X\
+    set $myMouseY3 MOUSE_Y\
+    set $x3 bitmap-under-mouse $myMouseX3 $myMouseY3 up range 3 8\
+    if $x3  == 3\
+      set $b1 1\
+    fi\
+   if $x3  == 4\
+      set $b2 1\
+    fi\
+   if $x3  == 5\
+      set $b3 1\
+    fi\
+  if $x3  == 6\
+      set $b4 1\
+    fi\
+    if $x3 == 8\
+    end tasklist\
+  fi\
+    show bitmap ticked $myMouseX3 $myMouseY3 ## it has to be here, check while-end\
+    readmouse l 1 10000000000 range 3 8\
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4 \
+   set $x4 0\
+    set $myMouseX4 MOUSE_X\
+    set $myMouseY4 MOUSE_Y\
+    set $x4 bitmap-under-mouse $myMouseX4 $myMouseY4 up range 3 8\
+    if $x4  == 3\
+      set $b1 1\
+    fi\
+   if $x4  == 4\
+      set $b2 1\
+    fi\
+   if $x4  == 5\
+      set $b3 1\
+    fi\
+  if $x4  == 6\
+      set $b4 1\
+    fi\
+    if $x4 == 8\
+    end tasklist\
+  fi\
+  show bitmap ticked $myMouseX4 $myMouseY4 ## it has to be here, check while-end    \
+  save BLOCKORDER BLOCKNAME TASKNAME RT  $myMouseX $myMouseY $myMouseX2 $myMouseY2 $myMouseX3 $myMouseY3  $myMouseX4 $myMouseY4 $x $x2 $x3 $x4  $b1 $b2 $b3 $b4\
+  while-end\
+\
+\
+block cardNSBblock\
+  tasklist\
+    cardNSB 1\
+  end\
+}

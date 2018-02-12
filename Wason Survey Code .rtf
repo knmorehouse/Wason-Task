@@ -1,0 +1,257 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 scale: agree\
+- \{score=1\} Disagree strongly\
+- \{score=2\} Disagree moderately\
+- \{score=3\} Disagree a little\
+- \{score=4\} Neither agree nor disagree\
+- \{score=5\} Agree a little\
+- \{score=6\} Agree moderately\
+- \{score=7\} Agree strongly\
+\
+scale: sixagree\
+- \{score=1\} Strongly Disagree\
+- \{score=2\} Moderately Disagree\
+- \{score=3\}  Slightly Disagree\
+- \{score=4\} Slightly Agree\
+- \{score=5\} Moderately Agree\
+- \{score=6\} Strongly Agree\
+\
+scale: fouragree \
+- \{score=1\} Strongly disagree \
+- \{score=2\} Somewhat disagree\
+- \{score=3\} Somewhat agree\
+- \{score=4\} Strongly agree\
+\
+\
+scale: SRSspeed\
+- \{score=1\} Trying to push very much too fast\
+- \{score=2\} Moving at about the right speed\
+- \{score=3\} Going too slowly\
+\
+scale: SRStension\
+- \{score=1\} Not much at all\
+- \{score=2\} Some\
+- \{score=3\} Most \
+- \{score=4\} All of it\
+\
+scale: SRSdiscrim\
+- \{score=1\} A lot\
+- \{score=2\} Some\
+- \{score=3\} Just a little\
+- \{score=4\} None at all\
+\
+l: sex\
+t: radio\
+q: What is your sex?\
+- Male\
+- Female\
+- Prefer not to answer\
+\
+l: age\
+t: range\
+q: What is your age? Please respond only in numerical values.\
+- \{min = 18, max= 100\}\
+\
+l: race\
+t: radio\
+q: What is your race/ethnicity?\
+- American Indian or Alaska Native\
+- Black or African American\
+- White/Caucasian\
+- Hispanic or Latino\
+- Non Hispanic\
+- Other\
+\
+\
+scale: relig\
+- \{score=1\} Not at all religious\
+- \{score=2\} Slightly\
+- \{score=3\} Somewhat\
+- \{score=4\} Moderately\
+- \{score=5\} Very\
+- \{score=6\} Extremely\
+\
+l: relig\
+t: scale relig\
+q: How religious are you?\
+- How religious are you?\
+\
+scale: libcon\
+- \{score=1\} Extremely Liberal\
+- \{score=2\} Liberal\
+- \{score=3\} Slightly Liberal\
+- \{score=4\} Middle of the Road\
+- \{score=5\} Slightly Conservative\
+- \{score=6\} Conservative\
+- \{score=7\} Extremely Conservative\
+\
+l: pollibcon\
+t: scale libcon\
+q: How politically liberal or conservative are you?\
+- How politically liberal or conservative are you?\
+\
+l: soc\
+t: scale libcon\
+q: Regarding social issues, are you more of a liberal or more of a conservative?\
+-  Regarding social issues, are you more of a liberal or more of a conservative?\
+\
+l: econ\
+t: scale libcon\
+q: Regarding economic issues, are you more of a liberal or more of a conservative?\
+- Regarding economic issues, are you more of a liberal or more of a conservative?\
+\
+l: edu\
+t: radio\
+q: What is your highest educational attainment?\
+- Did Not Complete High School\
+- High School/GED\
+- Some College\
+- Bachelor's Degree\
+- Master's Degree\
+- Professional Degree\
+- Doctorate Degree\
+\
+l: legal\
+t: radio\
+q: Are you currently, or have you ever been employed in a legal field? (e.g. attorney, law enforcement, law office, worked in a courthouse, prison/jail. etc.)\
+- No, I have never been employed in the legal field\
+- Yes, but not presently\
+- Yes, I am currently employed in the legal field\
+\
+l: income\
+t: radio\
+q: What is your annual household income?\
+- Under $19,999\
+- $20,000 - $39,999\
+- $40,000 - $59,999\
+- $60,000 - $79,999\
+- $80,000-$99,999\
+- $100,000-$149,999\
+- $150,000-$199,999\
+- Over $200,000\
+- Prefer not to answer\
+\
+l: citizen\
+t: radio\
+q: Are you a US citizen?\
+- Yes\
+- No\
+\
+# Run Wason Experiment\
+\
+l: Wason\
+t: experiment\
+q:  \
+- \{fullscreen\} Wason_Task\
+\
+l: Continue \
+t: radio\
+q: We have one final portion of today\'92s survey. People think reason about rules differently, so we would like to know a little more about how you think. Please read each prompt and respond accordingly.\
+- Next\
+\
+#now that we are using the SRS we can't randomize the order because it would mess up the SRS\
+#random: begin #randomize following measures\
+#random: end\
+\
+#Need for Cognitive closure scale\
+\
+l: NFCC\
+t: scale sixagree\
+$o: random\
+q: Read each of the following statements and decide how much you agree with each according to your beliefs and experiences. Please respond according to the following scale: 1= Strongly disagree, 7 = Strongly Agree. .<br>\
+- I don't like situations that are uncertain. \
+- I dislike questions which could be answered in many different ways. \
+- I find that a well-ordered life with regular hours suits my temperament. \
+- I feel uncomfortable when I don't understand the reason why an event occurred in my life. \
+- I feel irritated when one person disagrees with what everyone else in a group believes. \
+- I don't like to go into a situation without knowing what I can expect from it. \
+- When I have made a decision, I feel relieved \
+- When I am confronted with a problem, I\'92m dying to reach a solution very quickly. \
+- I would quickly become impatient and irritated if I would not find a solution to a problem immediately. \
+- I don't like to be with people who are capable of unexpected actions.\
+- I dislike it when a person's statement could mean many different things. \
+- I find that establishing a consistent routine enables me to enjoy life more.\
+- I enjoy having a clear and structured mode of life.\
+- I do not usually consult many different opinions before forming my own view.\
+- I dislike unpredictable situations.\
+\
+l: scoreNFCC\
+t: set\
+- sum $NFCC\
+\
+#symbolic racism scale\
+\
+l: SRS1\
+t: scale fouragree #note that I've reversed 1 and 4 from the original scale\
+q: Read each of the following statements and decide how much you agree with each according to your beliefs and experiences. Please respond according to the following scale: 1= Strongly disagree, 4 = Strongly Agree. \
+- It\'92s really a matter of some people not trying hard enough; if blacks would only try harder they could be just as well off as whites.        \
+- Irish, Italian, Jewish and many other minorities overcame prejudice and worked their way up.  Blacks should do the same.\
+\
+l: scoreSRS1\
+t: set\
+- sum $SRS1\
+\
+l: SRS2\
+t: scale SRSspeed\
+q: Some say that black leaders have been trying to push too fast.  Others feel that they haven\'92t pushed fast enough. What do you think?\
+- \{rev\} Some say that black leaders have been trying to push too fast.  Others feel that they haven\'92t pushed fast enough. What do you think?\
+\
+l: scoreSRS2\
+t: set\
+- sum $SRS2\
+ \
+l: SRS3\
+t: scale SRStension \
+q:   How much of the racial tension that exists in the United States today do you think blacks are responsible for creating?\
+-   How much of the racial tension that exists in the United States today do you think blacks are responsible for creating?       \
+\
+l: scoreSRS3\
+t: set\
+- sum $SRS3\
+ \
+l: SRS4\
+t: scale SRSdiscrim\
+q:  How much discrimination against blacks do you feel there is in the United States today, limiting their chances to get ahead?\
+- \{rev\} How much discrimination against blacks do you feel there is in the United States today, limiting their chances to get ahead?      \
+\
+l: scoreSRS4\
+t: set\
+- sum $SRS4\
+ \
+l: SRS5\
+t: scale fouragree #note that I've reversed 1 and 4 from the original scale\
+q: Read each of the following statements and decide how much you agree with each according to your beliefs and experiences. Please respond according to the following scale: 1= Strongly disagree, 4 = Strongly Agree. \
+- \{rev\} Generations of slavery and discrimination have created conditions that make it difficult for blacks to work their way out of the lower class.  \
+- \{rev\} Over the past few years, blacks have gotten less than they deserve.\
+- Over the past few years, blacks have gotten more economically than they deserve.\
+\
+l: scoreSRS5\
+t: set\
+- sum $SRS5\
+\
+l: SRSK\
+t: scale fouragree \
+q: Read each of the following statements and decide how much you agree with each according to your beliefs and experiences. Please respond according to the following scale: 1= Strongly disagree, 4 = Strongly Agree. \
+- It is true that it is more in their nature for blacks to be criminals.\
+- I would not be surprised to see a black child in trouble with the law.\
+- There is some truth to the belief that blacks are more violent.\
+- I would feel uneasy walking alone past a group of black teenagers.\
+\
+l: scoreSRSK\
+t: set\
+- sum $SRSK\
+\
+l: totalSRS\
+t: set\
+- sum $SRS1 $SRS2 $SRS3 $SRS4 $SRS5\
+\
+l: totalSRSK\
+t: set\
+- sum  $SRS1 $SRS2 $SRS3 $SRS4 $SRS5 $SRSK\
+}
